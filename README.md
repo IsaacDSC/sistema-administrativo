@@ -14,3 +14,10 @@ instalar o body-parser
     função:Ler dados HTTP POST
     npm installl --save body-parser
 
+instalar o mongoDB
+    função: banco de dados
+    npm install --save mongodb
+
+instalar o mongose
+    função: traduz os dados do banco para dados js
+    npm install --save mongoose

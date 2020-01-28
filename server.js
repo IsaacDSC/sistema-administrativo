@@ -3,11 +3,26 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
+    //adicionando tradutor para Banco de dados
+const mongoose = require('mongoose')
+
+//adionando conexao com o banco de dados
+mongoose.connect('mongodb://localhost/siteAdm', {
+    useNewUrlParser: true,
+    useUnifiedToplogy: true
+
+}).then(() => {
+    console.log('Sucess connection in BD')
+}).catch((erro) => {
+    console.log('erro connection in mongoDb' + erro)
+})
 
 //para incluir o diretorio de routes 
 const home = require('./routes/home')
 const sobre = require('./routes/sobre')
 const contato = require('./routes/contato')
+const login = require('./routes/login')
+
 
 
 //config body parser
@@ -18,10 +33,15 @@ app.use(bodyParser.json())
 app.engine('handlebars', handlebars({ defaultLayout: "main" }))
 app.set('view engine', 'handlebars')
 
+//Carregar arquivos estáticos ==  css, img, font, js etc...
+app.use(express.static(path.join(__dirname, 'public')))
+
 //adionando as rotas
 app.use('/', home)
 app.use('/sobre', sobre)
 app.use('/contato', contato)
+app.use('/login', login)
+
 
 
 const PORT = 3000
