@@ -6,6 +6,15 @@ const path = require('path')
     //adicionando tradutor para Banco de dados
 const mongoose = require('mongoose')
 
+
+//para incluir o diretorio de routes 
+const home = require('./routes/home')
+const sobre = require('./routes/sobre')
+const contato = require('./routes/contato')
+const login = require('./routes/login')
+const add_bd = require('./routes/add_bd')
+
+
 //adionando conexao com o banco de dados
 mongoose.connect('mongodb://localhost/siteAdm', {
     useNewUrlParser: true,
@@ -16,13 +25,6 @@ mongoose.connect('mongodb://localhost/siteAdm', {
 }).catch((erro) => {
     console.log('erro connection in mongoDb' + erro)
 })
-
-//para incluir o diretorio de routes 
-const home = require('./routes/home')
-const sobre = require('./routes/sobre')
-const contato = require('./routes/contato')
-const login = require('./routes/login')
-
 
 
 //config body parser
@@ -41,6 +43,7 @@ app.use('/', home)
 app.use('/sobre', sobre)
 app.use('/contato', contato)
 app.use('/login', login)
+app.use('/add_bd', add_bd)
 
 
 
