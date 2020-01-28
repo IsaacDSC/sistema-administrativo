@@ -1,0 +1,30 @@
+{
+  "name": "sistema_adm",
+  "version": "1.0.0",
+  "description": "sistema usando nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacDSC/sistema-administrativo.git"
+  },
+  "keywords": [
+    "nodejs",
+    "js",
+    "sistemas",
+    "sistema-adm."
+  ],
+  "author": "IsaacDSC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacDSC/sistema-administrativo/issues"
+  },
+  "homepage": "https://github.com/IsaacDSC/sistema-administrativo#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}
