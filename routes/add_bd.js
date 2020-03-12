@@ -25,4 +25,4 @@ router.get('/', (req, res) => {
 })
 
 //exportando o modulo
-module.exports = router
+module.exports = router 

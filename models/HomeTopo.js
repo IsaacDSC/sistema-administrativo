@@ -5,7 +5,6 @@ const HomeTopo = new Schema({
     titulo: {
         type: String,
         required: true,
-
     },
     subtitulo: {
         type: String,
