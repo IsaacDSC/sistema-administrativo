@@ -1,9 +1,104 @@
-<div class="jumbotron descr-top">
+<div class="jumbotron descr-top" id="home">
     <div class="container text-center">
         <h1>{{hometopo.titulo}}</h1>
-        <p class="lead mb-4">{{subtitulo}}</p>
-        <a class="btn btn-lg btn-outline-light" href="#" role="button">{{titulobtn}}</a>
+        <p class="lead mb-4">{{hometopo.subtitulo}}</p>
+        <a class="btn btn-lg btn-outline-light" href="#" role="button">{{hometopo.titulobtn}}</a>
     </div>
-    {{hometopo}}
-    
 </div>
+<div class="jumbotron servicos">
+    <div class="container">
+        <h2 class="display-4 text-center" style="margin-bottom: 40px;">{{servicos.titulo}}</h2>
+
+        <div class="card-deck">
+            <div class="card text-center card-um">
+                <span style="font-size: 58px; color: #313451;">
+                    <i class="{{servicos.iconeserum}}"></i>
+                </span>
+                <div class="card-body">
+                    <h5 class="card-title">{{servicos.tituloserum}}</h5>
+                    <p class="card-text lead">{{servicos.descserum}}</p>
+                </div>
+            </div>
+            <div class="card text-center card-dois">
+                <span style="font-size: 58px; color: #313451;">
+                    <i class="{{servicos.iconeserdois}}"></i>
+                </span>
+                <div class="card-body">
+                    <h5 class="card-title">{{servicos.tituloserdois}}</h5>
+                    <p class="card-text lead">{{servicos.descserdois}}</p>
+                </div>
+            </div>
+            <div class="card text-center card-tres">
+                <div class="icon-row tamanh-icone ">
+                    <span style="font-size: 58px; color: #313451;">
+                        <i class="{{servicos.iconesertres}}"></i>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{servicos.titulosertres}}</h5>
+                    <p class="card-text lead">{{servicos.descsertres}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron video">
+    <div class="container">
+        <h2 class="display-4 text-center video-titulo" style="margin-bottom: 40px;">{{videos.titulo}}</h2>
+        <p class="lead text-center video-parag">{{videos.subtitulo}}</p>
+        <div class="row justify-content-md-center video-cont">
+
+            <div class="col-12 col-md-8">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{videos.urlVideo}}" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron exp-home">
+    <div class="container">
+        <div class="row featurette">
+            <div class="col-md-6">
+                <h2 class="featurette-heading exp-home-titulo">{{experience.titulo}}</h2>
+                <p class="lead">{{experience.descrip}}</p>
+                <p><button type="button" class="btn btn-outline-danger">{{experience.btntitle}}</button></p>
+            </div>
+            <div class="col-md-6">
+                <div class="">
+                    <div class="media text-muted pt-3">
+                        <div class="bd-placeholder-img mr-2 rounded">
+                            <span style="font-size: 38px; color: #313451;">
+                                <i class="{{experience.iconUm}}"></i>
+                            </span>
+                        </div>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">{{experience.tituloUm}}</strong> {{experience.descricaoUm}}
+                        </p>
+                    </div>
+                    <div class="media text-muted pt-3">
+                        <div class="bd-placeholder-img mr-2 rounded">
+                            <span style="font-size: 38px; color: #313451;">
+                                <i class="{{experience.iconDois}}"></i>
+                            </span>
+                        </div>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">{{experience.tituloDois}}</strong> {{experience.descricaoDois}}
+                        </p>
+                    </div>
+                    <div class="media text-muted pt-3">
+                        <div class="bd-placeholder-img mr-2 rounded">
+                            <span style="font-size: 38px; color: #313451;">
+                                <i class="{{experience.iconTres}}"></i>
+                            </span>
+                        </div>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <strong class="d-block text-gray-dark">{{experience.tituloTres}}</strong> {{experience.descricaoTres}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{>_footer}}
