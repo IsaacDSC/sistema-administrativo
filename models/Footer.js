@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const HomeFooter = new Schema({
+const Footer = new Schema({
     title: {
         type: String,
         require: true
@@ -64,4 +64,4 @@ const HomeFooter = new Schema({
     }
 
 })
-mongoose.model('homefooter', HomeFooter)
+mongoose.model('footer', Footer)

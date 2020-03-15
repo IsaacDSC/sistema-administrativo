@@ -22,8 +22,8 @@ require('../models/Experience')
 const Experience = mongoose.model('experience')
 
 //incluindo diretorio models HomeFooter
-require('../models/HomeFooter')
-const HomeFooter = mongoose.model('homefooter')
+require('../models/Footer')
+const Footer = mongoose.model('footer')
 
 
     //criando a rota para adiconar ao bd hometopo
@@ -98,12 +98,12 @@ router.get('/experience', (req, res) =>{
     })
 })
 
-router.get('/homefooter', (req,res)=>{
-    new HomeFooter({
+router.get('/footer', (req,res)=>{
+    new Footer({
         title: 'Site ADM',
-        linkhome: '#home',
-        linkSobre: '#sobre',
-        linkContact: '#contact',
+        linkhome: '/',
+        linkSobre: '/sobre',
+        linkContact: '/contato',
         titleContact: 'Contato',
         contactOne: '(XX) XXXX-XXXX',
         linkcontactone: 'https://web.whatsapp.com/',
@@ -116,9 +116,9 @@ router.get('/homefooter', (req,res)=>{
         followThree: 'https://www.youtube.com/watch?v=n2ZSH0I83RM',
         followFor: 'https://twitter.com/login?lang=pt'
     }).save().then(()=>{
-        res.send('homefoorter cadastrado com sucesso!')
+        res.send('foorter cadastrado com sucesso!')
     }).catch((err)=>{
-        res.send('Erro ao cadastrar homefooter : ' + err)
+        res.send('Erro ao cadastrar footer : ' + err)
     })
 })
 
