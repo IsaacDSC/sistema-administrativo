@@ -2,11 +2,19 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Sobre = new Schema({
-    titulo: {
+    title:{
+        type: String,
+        require: true
+    },
+    subtitle:{
+        type: String,
+        require: true
+    },
+    descrip_one: {
         type: String,
         required: true
     },
-    descrip:{
+    descrip_tow:{
         type:String,
         required: true
     },

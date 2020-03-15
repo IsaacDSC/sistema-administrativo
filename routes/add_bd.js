@@ -25,6 +25,9 @@ const Experience = mongoose.model('experience')
 require('../models/Footer')
 const Footer = mongoose.model('footer')
 
+//incluindo diretorio models Sobre
+require('../models/Sobre')
+const Sobre = mongoose.model('sobre')
 
     //criando a rota para adiconar ao bd hometopo
 router.get('/hometopo', (req, res) => {
@@ -119,6 +122,29 @@ router.get('/footer', (req,res)=>{
         res.send('foorter cadastrado com sucesso!')
     }).catch((err)=>{
         res.send('Erro ao cadastrar footer : ' + err)
+    })
+})
+
+router.get('/sobre', (req, res)=>{
+    new Sobre({
+        title: 'Blá blá é uma empresa de trasporte!',
+        subtitle: 'Uma das maiores transportadora do Brasil',
+        descrip_one: 'Somos uma empresa...',
+        descrip_tow: 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.',
+        iconUm: 'fas fa-route',
+        tituloUm:'EXPERIÊNCIA',
+        descricaoUm: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
+        iconDois: 'fas fa-satellite',
+        tituloDois: 'TECNOLOGIA',
+        descricaoDois: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
+        iconTres: 'far fa-handshake',
+        tituloTres: 'PROXIMIDADE',
+        descricaoTres: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
+        btntitle: 'ENTRE EM CONTATO'
+    }).save().then(()=>{
+        res.send('Pagina Sobre cadastrada com sucesso!')
+    }).catch((err)=>{
+        res.send('Erro ao cadastrar pagina sobre: '+ err)
     })
 })
 
