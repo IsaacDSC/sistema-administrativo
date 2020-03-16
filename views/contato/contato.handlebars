@@ -1,7 +1,7 @@
 <div class="jumbotron descr-top-sobre">
             <div class="container text-center">
-                <h1>Entre em Contato – Transportadora!</h1>
-                <p class="lead mb-4">Escolha o canal de atendimento de sua preferência para orçamento ou dúvidas</p>
+                <h1>{{contato.title}}</h1>
+                <p class="lead mb-4">{{contato.subtitle}}</p>
             </div>
         </div>
 
@@ -9,25 +9,25 @@
             <div class="container">
                 <div class="row featurette">
                     <div class="col-md-6">
-                        <h3 class="featurette-heading exp-home-titulo">Solicite mais informações ou orçamento</h3>
+                        <h3 class="featurette-heading exp-home-titulo">{{contato.titleContact}}</h3>
                         <form>
                             <div class="form-group">
-                                <label>Nome</label>
-                                <input type="text" class="form-control" placeholder="Nome completo">
+                                <label>{{contato.label_one}}</label>
+                                <input type="text" class="form-control" placeholder="{{contato.placeholder_one}}">
                             </div>
                             <div class="form-group">
-                                <label>E-mail</label>
-                                <input type="email" class="form-control" placeholder="Seu Melhor E-mail">
+                                <label>{{contato.label_tow}}</label>
+                                <input type="email" class="form-control" placeholder="{{contato.placeholder_tow}}">
                             </div>
                             <div class="form-group">
-                                <label>Assunto</label>
-                                <input type="text" class="form-control" placeholder="Assunto da mensagem">
+                                <label>{{contato.label_three}}</label>
+                                <input type="text" class="form-control" placeholder="{{contato.placeholder_three}}">
                             </div>
                             <div class="form-group">
-                                <label>Mensagem</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <label>{{contato.label_for}}</label>
+                                <textarea class="form-control" rows="6" placeholder="{{contato.placeholder_for}}"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-danger">Enviar</button>
+                            <button type="submit" class="btn btn-danger">{{contato.btntitle}}</button>
                         </form>
                     </div>
                     <div class="col-md-6">

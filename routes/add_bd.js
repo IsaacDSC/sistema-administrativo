@@ -29,6 +29,10 @@ const Footer = mongoose.model('footer')
 require('../models/Sobre')
 const Sobre = mongoose.model('sobre')
 
+//incluindo diretorio models contato
+require('../models/Contato')
+const Contato = mongoose.model('contato')
+
     //criando a rota para adiconar ao bd hometopo
 router.get('/hometopo', (req, res) => {
     //res.send('pag inicial do site')
@@ -145,6 +149,33 @@ router.get('/sobre', (req, res)=>{
         res.send('Pagina Sobre cadastrada com sucesso!')
     }).catch((err)=>{
         res.send('Erro ao cadastrar pagina sobre: '+ err)
+    })
+})
+
+router.get('/contato', (req, res)=>{
+    new Contato({
+        title:'Entre em Contato – Transportadora!',
+        subtitle: 'Escolha o canal de atendimento de sua preferência para orçamento ou dúvidas',
+        titleContact: 'Solicite mais informações ou orçamento',
+        label_one: 'Nome',
+        placeholder_one: 'Nome Completo',
+        label_tow: 'E-mail',
+        placeholder_tow: 'Seu melhor E-mail',
+        label_three: 'Assunto',
+        placeholder_three: 'Assunto da Mensagem',
+        label_for: 'Mensagem',
+        placeholder_for: 'Digite sua mensagem...',
+        title_tow: 'Fale Conosco',
+        hrfuncionamento: 'Segunda a Sexta: 08:30 às 12:00 e 13:30 às 18:00',
+        title_endereco: 'Endereço',
+        endereco: 'Avenida Winston Churchill, 936',
+        cidade_estado: 'Capão Raso - Curitiba',
+        number: '(xx) xxxx-xxxx',
+        btntitle: 'Enviar'
+    }).save().then(()=>{
+        res.send('Pagina Contato cadastrada com sucesso!')
+    }).catch((err)=>{
+        res.send('Erro ao cadastrar pagina contato')
     })
 })
 
