@@ -61,6 +61,14 @@ const Footer = new Schema({
     followFor:{
         type: String,
         require: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now()
+    },
+    updateAt: {
+        type: Date,
+        required: false
     }
 
 })

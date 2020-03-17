@@ -10,35 +10,38 @@
                 <div class="row featurette">
                     <div class="col-md-6">
                         <h3 class="featurette-heading exp-home-titulo">{{contato.titleContact}}</h3>
-                        <form>
+                        {{#each errors}}
+                            {{error}}
+                        {{/each}}
+                        <form method="POST" action="/contato/add-contato">
                             <div class="form-group">
                                 <label>{{contato.label_one}}</label>
-                                <input type="text" class="form-control" placeholder="{{contato.placeholder_one}}">
+                                <input name="nome" type="text" require="require" class="form-control" placeholder="{{contato.placeholder_one}}">
                             </div>
                             <div class="form-group">
                                 <label>{{contato.label_tow}}</label>
-                                <input type="email" class="form-control" placeholder="{{contato.placeholder_tow}}">
+                                <input name="email" type="email" require="require" class="form-control" placeholder="{{contato.placeholder_tow}}">
                             </div>
                             <div class="form-group">
                                 <label>{{contato.label_three}}</label>
-                                <input type="text" class="form-control" placeholder="{{contato.placeholder_three}}">
+                                <input name="assunto" type="text" require="require" class="form-control" placeholder="{{contato.placeholder_three}}">
                             </div>
                             <div class="form-group">
                                 <label>{{contato.label_for}}</label>
-                                <textarea class="form-control" rows="6" placeholder="{{contato.placeholder_for}}"></textarea>
+                                <textarea name="mensagem" require="require" class="form-control" rows="6" placeholder="{{contato.placeholder_for}}"></textarea>
                             </div>
                             <button type="submit" class="btn btn-danger">{{contato.btntitle}}</button>
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <h3 class="featurette-heading exp-home-titulo">Fale Conosco</h3>
-                        <p class="lead">Segunda a Sexta: 08:30 às 12:00 e 13:30 às 18:00</p>
+                        <h3 class="featurette-heading exp-home-titulo">{{contato.title_tow}}</h3>
+                        <p class="lead">{{contato.hrfuncionamento}}</p>
                         <hr>
                         <address>
-                            <strong>Endereço.</strong><br>
-                            Avenida Winston Churchill, 936<br>
-                            Capão Raso - Curitiba<br>
-                            (xx) xxxx-xxxx
+                            <strong>{{contato.title_endereco}}.</strong><br>
+                           {{contato.endereco}}<br>
+                            {{contato.cidade_estado}}<br>
+                            {{contato.number}}
                         </address>
                     </div>
                 </div>
@@ -50,3 +53,4 @@
 
             </div>
         </div>
+    {{>_footer}}
