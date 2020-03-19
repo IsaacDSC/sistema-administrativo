@@ -3,9 +3,11 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
-    //adicionando tradutor para Banco de dados
-const mongoose = require('mongoose')
+const session = require('express-session')
+const flash = require('connect-flash')
 
+//adicionando tradutor para Banco de dados
+const mongoose = require('mongoose')
 
 //para incluir o diretorio de routes 
 const home = require('./routes/home')
@@ -37,6 +39,23 @@ app.set('view engine', 'handlebars')
 
 //Carregar arquivos estáticos ==  css, img, font, js etc...
 app.use(express.static(path.join(__dirname, 'public')))
+
+//configuração da sessao
+app.use(session({
+    secret: "cursodenode",
+    resave: true,
+    saveUninitialized: true
+}))
+
+//config flash
+app.use(flash())
+
+//configurando midleware flash
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    next()
+})
 
 //adionando as rotas
 app.use('/', home)

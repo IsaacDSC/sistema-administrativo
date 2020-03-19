@@ -1,56 +1,61 @@
 <div class="jumbotron descr-top-sobre">
-            <div class="container text-center">
-                <h1>{{contato.title}}</h1>
-                <p class="lead mb-4">{{contato.subtitle}}</p>
-            </div>
-        </div>
+    <div class="container text-center">
+        <h1>{{contato.title}}</h1>
+        <p class="lead mb-4">{{contato.subtitle}}</p>
+    </div>
+</div>
 
-        <div class="jumbotron contato">
-            <div class="container">
-                <div class="row featurette">
-                    <div class="col-md-6">
-                        <h3 class="featurette-heading exp-home-titulo">{{contato.titleContact}}</h3>
-                        {{#each errors}}
-                            {{error}}
-                        {{/each}}
-                        <form method="POST" action="/contato/add-contato">
-                            <div class="form-group">
-                                <label>{{contato.label_one}}</label>
-                                <input name="nome" type="text" require="require" class="form-control" placeholder="{{contato.placeholder_one}}">
-                            </div>
-                            <div class="form-group">
-                                <label>{{contato.label_tow}}</label>
-                                <input name="email" type="email" require="require" class="form-control" placeholder="{{contato.placeholder_tow}}">
-                            </div>
-                            <div class="form-group">
-                                <label>{{contato.label_three}}</label>
-                                <input name="assunto" type="text" require="require" class="form-control" placeholder="{{contato.placeholder_three}}">
-                            </div>
-                            <div class="form-group">
-                                <label>{{contato.label_for}}</label>
-                                <textarea name="mensagem" require="require" class="form-control" rows="6" placeholder="{{contato.placeholder_for}}"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-danger">{{contato.btntitle}}</button>
-                        </form>
+<div class="jumbotron contato">
+    <div class="container">
+        <div class="row featurette">
+            <div class="col-md-6">
+                <h3 class="featurette-heading exp-home-titulo">{{contato.titleContact}}</h3>
+                {{#each erros}}
+                <div class="alert alert-danger">{{text}}</div>
+                {{else}}
+                {{/each}}
+                <form method="POST" action="/contato/add-contato">
+                    <div class="form-group">
+                        <label>{{contato.label_one}}</label>
+                        <input name="nome" type="text" require="require" class="form-control"
+                            placeholder="{{contato.placeholder_one}}" value="{{dados_contatos.nome}}">
                     </div>
-                    <div class="col-md-6">
-                        <h3 class="featurette-heading exp-home-titulo">{{contato.title_tow}}</h3>
-                        <p class="lead">{{contato.hrfuncionamento}}</p>
-                        <hr>
-                        <address>
-                            <strong>{{contato.title_endereco}}.</strong><br>
-                           {{contato.endereco}}<br>
-                            {{contato.cidade_estado}}<br>
-                            {{contato.number}}
-                        </address>
+                    <div class="form-group">
+                        <label>{{contato.label_tow}}</label>
+                        <input name="email" type="email" require="require" class="form-control"
+                            placeholder="{{contato.placeholder_tow}}" value="{{dados_contatos.email}}">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label>{{contato.label_three}}</label>
+                        <input name="assunto" type="text" require="require" class="form-control"
+                            placeholder="{{contato.placeholder_three}}" value="{{dados_contatos.assunto}}">
+                    </div>
+                    <div class="form-group">
+                        <label>{{contato.label_for}}</label>
+                        <textarea name="mensagem" require="require" class="form-control" rows="6"
+                            placeholder="{{contato.placeholder_for}}" value="{{dados_contatos.mensagem}}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">{{contato.btntitle}}</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3 class="featurette-heading exp-home-titulo">{{contato.title_tow}}</h3>
+                <p class="lead">{{contato.hrfuncionamento}}</p>
+                <hr>
+                <address>
+                    <strong>{{contato.title_endereco}}.</strong><br>
+                    {{contato.endereco}}<br>
+                    {{contato.cidade_estado}}<br>
+                    {{contato.number}}
+                </address>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="jumbotron contato">
-            <div class="container">
+<div class="jumbotron contato">
+    <div class="container">
 
-            </div>
-        </div>
-    {{>_footer}}
+    </div>
+</div>
+{{>_footer}}
