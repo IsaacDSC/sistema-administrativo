@@ -5,6 +5,9 @@ const router = express.Router()
 //incluindo mongose
 const mongoose = require('mongoose')
 
+//incluindo modulo para criptgrafar
+const bcriptjs = require('bcryptjs')
+
 //incluindo diretório models
 require('../models/HomeTopo')
 const HomeTopo = mongoose.model('hometopos')
@@ -33,7 +36,11 @@ const Sobre = mongoose.model('sobre')
 require('../models/Contato')
 const Contato = mongoose.model('contato')
 
-    //criando a rota para adiconar ao bd hometopo
+//incluindo diretrorio models login
+require('../models/Usuario')
+const Usuario = mongoose.model('usuario')
+
+//criando a rota para adiconar ao bd hometopo
 router.get('/hometopo', (req, res) => {
     //res.send('pag inicial do site')
     new HomeTopo({
@@ -51,10 +58,10 @@ router.get('/hometopo', (req, res) => {
 
 
 //criando a rota para adionar ao bd servicos
-router.get('/servicos',(req,res) => {
+router.get('/servicos', (req, res) => {
     new Servicos({
         titulo: 'Serviços',
-        iconeserum:'fas fa-truck-moving',
+        iconeserum: 'fas fa-truck-moving',
         tituloserum: 'Serviço um',
         descserum: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
         //adionando segundo SERVICO
@@ -62,29 +69,29 @@ router.get('/servicos',(req,res) => {
         tituloserdois: 'Serviços dois',
         descserdois: 'This card has supporting text below as a natural lead-in to additional content.',
         //adiconando terceiro SERVICO
-        iconesertres:'fas fa-boxes',
+        iconesertres: 'fas fa-boxes',
         titulosertres: 'Serviço tres',
         descsertres: 'This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.',
-    }).save().then(()=>{
+    }).save().then(() => {
         console.log('Serviço cadastrado com sucesso')
-    }).catch((err)=>{
-        console.log('erro ao tentar cadastrar'+ err)
+    }).catch((err) => {
+        console.log('erro ao tentar cadastrar' + err)
     })
 })
 
-router.get('/videos', (req, res)=>{
+router.get('/videos', (req, res) => {
     new Videos({
         titulo: 'Video',
         subtitulo: 'This is a wider card with supporting text below as a natural lead-in to additional content.',
         urlVideo: 'https://www.youtube.com/watch?v=rDl3gAJpm_4'
-    }).save().then(()=>{
+    }).save().then(() => {
         res.send('Aba Video Cadastrada com Sucesso!')
-    }).catch((err)=>{
-        res.send('Erro ao cadastrar aba Video: '+ err)
+    }).catch((err) => {
+        res.send('Erro ao cadastrar aba Video: ' + err)
     })
 })
 
-router.get('/experience', (req, res) =>{
+router.get('/experience', (req, res) => {
     new Experience({
         titulo: 'Somos uma empresa...',
         descrip: 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.',
@@ -98,14 +105,14 @@ router.get('/experience', (req, res) =>{
         tituloTres: 'PROXIMIDADE',
         descricaoTres: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
         btntitle: 'ENTRE EM CONTATO'
-    }).save().then(()=>{
+    }).save().then(() => {
         res.send('Experience cadastrado com sucesso!')
-    }).catch((err)=>{
+    }).catch((err) => {
         res.send('Erro ao cadastrar Experience:' + err)
     })
 })
 
-router.get('/footer', (req,res)=>{
+router.get('/footer', (req, res) => {
     new Footer({
         title: 'Site ADM',
         linkhome: '/',
@@ -122,21 +129,21 @@ router.get('/footer', (req,res)=>{
         followTow: 'https://www.instagram.com/?hl=pt-br',
         followThree: 'https://www.youtube.com/watch?v=n2ZSH0I83RM',
         followFor: 'https://twitter.com/login?lang=pt'
-    }).save().then(()=>{
+    }).save().then(() => {
         res.send('foorter cadastrado com sucesso!')
-    }).catch((err)=>{
+    }).catch((err) => {
         res.send('Erro ao cadastrar footer : ' + err)
     })
 })
 
-router.get('/sobre', (req, res)=>{
+router.get('/sobre', (req, res) => {
     new Sobre({
         title: 'Blá blá é uma empresa de trasporte!',
         subtitle: 'Uma das maiores transportadora do Brasil',
         descrip_one: 'Somos uma empresa...',
         descrip_tow: 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.',
         iconUm: 'fas fa-route',
-        tituloUm:'EXPERIÊNCIA',
+        tituloUm: 'EXPERIÊNCIA',
         descricaoUm: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
         iconDois: 'fas fa-satellite',
         tituloDois: 'TECNOLOGIA',
@@ -145,16 +152,16 @@ router.get('/sobre', (req, res)=>{
         tituloTres: 'PROXIMIDADE',
         descricaoTres: 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
         btntitle: 'ENTRE EM CONTATO'
-    }).save().then(()=>{
+    }).save().then(() => {
         res.send('Pagina Sobre cadastrada com sucesso!')
-    }).catch((err)=>{
-        res.send('Erro ao cadastrar pagina sobre: '+ err)
+    }).catch((err) => {
+        res.send('Erro ao cadastrar pagina sobre: ' + err)
     })
 })
 
-router.get('/contato', (req, res)=>{
+router.get('/contato', (req, res) => {
     new Contato({
-        title:'Entre em Contato – Transportadora!',
+        title: 'Entre em Contato – Transportadora!',
         subtitle: 'Escolha o canal de atendimento de sua preferência para orçamento ou dúvidas',
         titleContact: 'Solicite mais informações ou orçamento',
         label_one: 'Nome',
@@ -172,12 +179,36 @@ router.get('/contato', (req, res)=>{
         cidade_estado: 'Capão Raso - Curitiba',
         number: '(xx) xxxx-xxxx',
         btntitle: 'Enviar'
-    }).save().then(()=>{
+    }).save().then(() => {
         res.send('Pagina Contato cadastrada com sucesso!')
-    }).catch((err)=>{
+    }).catch((err) => {
         res.send('Erro ao cadastrar pagina contato')
     })
 })
 
+
+router.get('/login', (req, res) => {
+    var senha = 'Iagent*123'
+    bcriptjs.genSalt(10, (erro, salt) => {
+        bcriptjs.hash(senha, salt, (erro, hash) => {
+            if (erro) {
+                res.send('Erro ao Criptografar esta senha')
+            } else {
+                var senha_cript = hash
+                new Usuario({
+                    nome: 'IsaacDSC',
+                    email: 'isaac8.silva@hotmail.com',
+                    senha: senha_cript
+                }).save().then(() => {
+                    res.send('Usuario Cadastrado com sucesso!')
+                }).catch((err) => {
+                    res.send('Usuario não cadastrado com sucesso! ' + err)
+                })
+            }
+        })
+    })
+
+})
+
 //exportando o modulo
-module.exports = router 
+module.exports = router

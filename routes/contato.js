@@ -136,7 +136,7 @@ router.post('/add-contato', (req, res) => {
             req.flash('success_msg', 'Mensagem enviada com sucesso!')
             res.redirect('/contato')
         }).catch((err) => {
-            res.flash('error_msg', 'Erro ao enviar o formulário' + err)
+            req.flash('error_msg', 'Erro ao enviar o formulário' + err)
             res.redirect('/contato')
         })
     }
