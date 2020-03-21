@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const { eAdmin } = require('../helpers/eAdmin')
+
 const mongoose = require('mongoose')
-//adionando models Experience
+    //adionando models Experience
 require('../models/Sobre')
 const Sobre = mongoose.model('sobre')
 
@@ -11,10 +13,10 @@ const Footer = mongoose.model('footer')
 
 //criando rota
 router.get('/', (req, res) => {
-    Sobre.findOne().then((sobre)=>{
-        Footer.findOne().then((footer)=>{
-            res.render('sobre/sobre', {    
-                footer:{
+    Sobre.findOne().then((sobre) => {
+        Footer.findOne().then((footer) => {
+            res.render('sobre/sobre', {
+                footer: {
                     title: footer.title,
                     linkhome: footer.linkhome,
                     linkSobre: footer.linkSobre,
@@ -30,8 +32,8 @@ router.get('/', (req, res) => {
                     followTow: footer.followTow,
                     followThree: footer.followThree,
                     followFor: footer.followFor
-                 },
-                sobre:{
+                },
+                sobre: {
                     title: sobre.title,
                     subtitle: sobre.subtitle,
                     descrip_one: sobre.descrip_one,
@@ -46,17 +48,17 @@ router.get('/', (req, res) => {
                     tituloTres: sobre.tituloTres,
                     descricaoTres: sobre.descricaoTres,
                     btntitle: sobre.btntitle
-                    }
-        })
-       
+                }
             })
-      
-    }).catch((err)=>{
+
+        })
+
+    }).catch((err) => {
         res.send('error ROTA: ' + err)
     })
 })
 
-router.get('/edit-sobre', (req, res) => {
+router.get('/edit-sobre', eAdmin, (req, res) => {
     res.render('sobre/edit-sobre', { layout: 'adm.handlebars' })
 })
 
