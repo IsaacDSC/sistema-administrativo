@@ -62,5 +62,36 @@ router.get('/edit-sobre', eAdmin, (req, res) => {
     res.render('sobre/edit-sobre', { layout: 'adm.handlebars' })
 })
 
+
+router.get('/vis-sobre', eAdmin, (req, res) => {
+    Sobre.findOne().then((sobre) => {
+        res.render('sobre/vis-sobre', {
+            layout: 'adm.handlebars',
+            sobre: {
+                _id: sobre._id,
+                title: sobre.title,
+                subtitle: sobre.subtitle,
+                descrip_one: sobre.descrip_one,
+                descrip_tow: sobre.descrip_tow,
+                iconUm: sobre.iconUm,
+                tituloUm: sobre.tituloUm,
+                descricaoUm: sobre.descricaoUm,
+                iconDois: sobre.iconDois,
+                tituloDois: sobre.tituloDois,
+                descricaoDois: sobre.descricaoDois,
+                iconTres: sobre.iconTres,
+                tituloTres: sobre.tituloTres,
+                descricaoTres: sobre.descricaoTres,
+                btntitle: sobre.btntitle
+            }
+        })
+    }).catch((err) => {
+        req.flash('error_msg', 'Error: Não encontrado nenhum registro!' + err)
+        res.redirect('/dashboard')
+    })
+
+})
+
+
 //exportando o modulo
 module.exports = router
