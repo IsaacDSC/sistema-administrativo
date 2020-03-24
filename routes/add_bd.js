@@ -179,9 +179,9 @@ router.post('/sobre', eAdmin, (req, res) => {
             sobre.btntitle = req.body.btntitle
 
         sobre.save().then(() => {
-            /*req.flash('success_msg', 'Alterração Feita com Sucesso!')
-            res.redirect('/dashboard')*/
-            res.send('Editado com sucesso!')
+            req.flash('success_msg', 'Alterração Feita com Sucesso!')
+            res.redirect('/sobre/edit-sobre')
+                //res.send('Editado com sucesso!')
         }).catch((err) => {
             res.send('error ao editar: ' + err)
                 /* req.flash('error_msg', 'Error: ' + err)

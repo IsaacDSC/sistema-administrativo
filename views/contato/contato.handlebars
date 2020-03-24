@@ -12,11 +12,9 @@
                 <h3 class="featurette-heading exp-home-titulo">{{contato.titleContact}}</h3>
                 {{#each erros}}
                 <div class="alert alert-danger">{{text}}</div>
-                {{else}}
-                <div class="alert alert-success" role="alert">
-                    {{success_msg}}
-                </div>
                 {{/each}}
+                {{>messages}}
+
                 <form method="POST" action="/contato/add-contato">
                     <div class="form-group">
                         <label>{{contato.label_one}}</label>
