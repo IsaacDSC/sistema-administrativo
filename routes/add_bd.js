@@ -8,6 +8,9 @@ const mongoose = require('mongoose')
 //incluindo modulo para criptgrafar
 const bcriptjs = require('bcryptjs')
 
+//incluindo acesso apenas com email e senha
+const { eAdmin } = require('../helpers/eAdmin')
+
 //incluindo diretório models
 require('../models/HomeTopo')
 const HomeTopo = mongoose.model('hometopos')
@@ -136,7 +139,7 @@ router.get('/footer', (req, res) => {
     })
 })
 
-router.get('/sobre', (req, res) => {
+/*router.get('/sobre', (req, res) => {
     new Sobre({
         title: 'Blá blá é uma empresa de trasporte!',
         subtitle: 'Uma das maiores transportadora do Brasil',
@@ -156,6 +159,37 @@ router.get('/sobre', (req, res) => {
         res.send('Pagina Sobre cadastrada com sucesso!')
     }).catch((err) => {
         res.send('Erro ao cadastrar pagina sobre: ' + err)
+    })
+})*/
+router.post('/sobre', eAdmin, (req, res) => {
+    Sobre.findOne({ _id: req.body._id }).then((sobre) => {
+        sobre.title = req.body.title,
+            sobre.subtitle = req.body.subtitle,
+            sobre.descrip_one = req.body.descrip_one,
+            sobre.descrip_tow = req.body.descrip_tow,
+            sobre.iconUm = req.body.iconUm,
+            sobre.tituloUm = req.body.tituloUm,
+            sobre.descricaoUm = req.body.descricaoUm,
+            sobre.iconDois = req.body.iconDois,
+            sobre.tituloDois = req.body.tituloDois,
+            sobre.descricaoDois = req.body.descricaoDois,
+            sobre.iconTres = req.body.iconTres,
+            sobre.tituloTres = req.body.tituloTres,
+            sobre.descricaoTres = req.body.descricaoTres,
+            sobre.btntitle = req.body.btntitle
+
+        sobre.save().then(() => {
+            /*req.flash('success_msg', 'Alterração Feita com Sucesso!')
+            res.redirect('/dashboard')*/
+            res.send('Editado com sucesso!')
+        }).catch((err) => {
+            res.send('error ao editar: ' + err)
+                /* req.flash('error_msg', 'Error: ' + err)
+                 res.redirect('/sobre/edit-sobre')*/
+        })
+
+    }).catch((err) => {
+        res.send('Error: ' + err)
     })
 })
 

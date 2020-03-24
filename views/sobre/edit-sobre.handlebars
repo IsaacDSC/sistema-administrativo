@@ -1,1 +1,110 @@
-<h1>Formulário para editar sobre empresa</h1>
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Sobre</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/sobre/vis-sobre" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/sobre/vis-sobre">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <form action="/add_bd/sobre" method="POST">
+        <input name="_id" type="hidden" value="{{sobre._id}}">
+            <div class="form-group">
+                <label><span class="text-danger">* </span>Titulo sob.Imagem</label>
+                <input name="title" type="text" class="form-control" id="title"
+                    placeholder="Digite o titulo por cima da Imagem" value="{{sobre.title}}" required>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>Subtitulo sob.Imagem</label>
+                <input name="subtitle" type="text" class="form-control" id="subtitle"
+                    placeholder="Digite o subtitulo por cima da imagem" value="{{sobre.subtitle}}" required>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>Titulo</label>
+                <input name="descrip_one" type="text" class="form-control" id="descrip_one"
+                    placeholder="Digite o titulo" value="{{sobre.descrip_one}}" required>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>Descrição</label>
+                <textarea name="descrip_tow" id="descrip_tow" cols="80" rows="6" class="form-control" placeholder="Digite a descrição" required>{{sobre.descrip_tow}}</textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>1º Icone</label>
+                    <input name="iconUm" type="text" class="form-control" id="iconUm"
+                        placeholder="Digite código do 1º icone" value="{{sobre.iconUm}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>1º Titulo</label>
+                    <input name="tituloUm" type="text" class="form-control" id="tituloUm"
+                        placeholder="Digite o 1º titulo" value="{{sobre.tituloUm}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>1ª Descrição</label>
+                <textarea name="descricaoUm" id="descricaoUm" class="form-control" cols="30" rows="2"
+                    placeholder="Digite a 1ª descrição" required>{{sobre.descricaoUm}}</textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>2º Icone</label>
+                    <input name="iconDois" type="text" class="form-control" id="iconDois"
+                        placeholder="Digite código do 2º icone"  value="{{sobre.iconDois}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>2º Titulo</label>
+                    <input name="tituloDois" type="text" class="form-control" id="tituloDois"
+                        placeholder="Digite o 2º titulo" value="{{sobre.tituloDois}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>2ª Descrição</label>
+                <textarea name="descricaoDois" id="descricaoDois" cols="30" rows="2" class="form-control"
+                    placeholder="Digite a 2ª descrição" required>{{sobre.descricaoDois}}</textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>3º Icone</label>
+                    <input name="iconTres" type="text" class="form-control" id="iconeTres"
+                        placeholder="Digite código do 3º icone" value="{{sobre.iconTres}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>3º Titulo</label>
+                    <input name="tituloTres" type="text" class="form-control" id="tituloTres"
+                        placeholder="Digite o 3º titulo" value="{{sobre.tituloTres}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>3ª Descrição</label>
+                <textarea name="descricaoTres" id="descricaoTres" cols="30" rows="2" class="form-control"
+                    placeholder="Digite a 3ª descrição" required>{{sobre.descricaoTres}}</textarea>
+            </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{sobre.btntitle}}" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Imagem de Fundo</label>
+                    <input name="exemplo_1" type="file" class="form-group" id="exemplo_1">
+                </div>
+            <p>
+                <span class="text-danger">* </span>Todos os campos são obrigatórios
+            </p>
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

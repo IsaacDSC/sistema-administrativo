@@ -59,7 +59,28 @@ router.get('/', (req, res) => {
 })
 
 router.get('/edit-sobre', eAdmin, (req, res) => {
-    res.render('sobre/edit-sobre', { layout: 'adm.handlebars' })
+    Sobre.findOne({}).then((sobre) => {
+        res.render('sobre/edit-sobre', {
+            layout: 'adm.handlebars',
+            sobre: {
+                _id: sobre._id,
+                title: sobre.title,
+                subtitle: sobre.subtitle,
+                descrip_one: sobre.descrip_one,
+                descrip_tow: sobre.descrip_tow,
+                iconUm: sobre.iconUm,
+                tituloUm: sobre.tituloUm,
+                descricaoUm: sobre.descricaoUm,
+                iconDois: sobre.iconDois,
+                tituloDois: sobre.tituloDois,
+                descricaoDois: sobre.descricaoDois,
+                iconTres: sobre.iconTres,
+                tituloTres: sobre.tituloTres,
+                descricaoTres: sobre.descricaoTres,
+                btntitle: sobre.btntitle
+            }
+        })
+    })
 })
 
 
