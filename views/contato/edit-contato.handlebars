@@ -1,0 +1,125 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Contato</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/sobre/vis-sobre" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/sobre/vis-sobre">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>messages}}
+        <hr>
+        <form action="/add_bd/contato" method="POST">
+        <input name="_id" type="hidden" value="{{contato._id}}">
+            <div class="form-group">
+                <label><span class="text-danger">* </span>Titulo sob.Imagem</label>
+                <input name="title" type="text" class="form-control" id="title"
+                    placeholder="Digite o titulo por cima da Imagem" value="{{contato.title}}" required>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>Subtitulo sob.Imagem</label>
+                <input name="subtitle" type="text" class="form-control" id="subtitle"
+                    placeholder="Digite o subtitulo por cima da imagem" value="{{contato.subtitle}}" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>1º campo</label>
+                    <input name="iconUm" type="text" class="form-control" id="iconUm"
+                        placeholder="Digite código do 1º icone" value="{{contato.label_one}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>1º descrição campo</label>
+                    <input name="tituloUm" type="text" class="form-control" id="tituloUm"
+                        placeholder="Digite o 1º titulo" value="{{contato.placeholder_one}}" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>2º campo</label>
+                    <input name="iconUm" type="text" class="form-control" id="iconUm"
+                        placeholder="Digite código do 1º icone" value="{{contato.label_tow}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>2º descrição campo</label>
+                    <input name="tituloUm" type="text" class="form-control" id="tituloUm"
+                        placeholder="Digite o 1º titulo" value="{{contato.placeholder_tow}}" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>3º Campo</label>
+                    <input name="iconDois" type="text" class="form-control" id="iconDois"
+                        placeholder="Digite código do 2º icone"  value="{{contato.label_three}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>3º Descrição Campo</label>
+                    <input name="tituloDois" type="text" class="form-control" id="tituloDois"
+                        placeholder="Digite o 2º titulo" value="{{contato.placeholder_three}}" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">* </span>4º Campo</label>
+                    <input name="iconTres" type="text" class="form-control" id="iconeTres"
+                        placeholder="Digite código do 3º icone" value="{{contato.label_for}}" required>
+                </div>
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">* </span>4º Descrição Campo</label>
+                    <input name="tituloTres" type="text" class="form-control" id="tituloTres"
+                        placeholder="Digite o 3º titulo" value="{{contato.placeholder_for}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">* </span>3ª Descrição</label>
+                <textarea name="descricaoTres" id="descricaoTres" cols="30" rows="2" class="form-control"
+                    placeholder="Digite a 3ª descrição" required>{{contato.title_tow}}</textarea>
+            </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{contato.hrfuncionamento}}" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{contato.title_endereco}}" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{contato.endereco}}" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{contato.cidade_estado}}" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{contato.number}}" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">* </span>Titulo do Botão</label>
+                    <input name="btntitle" type="text" class="form-control col-md-6" id="btntitle"
+                        placeholder="Digite o titulo do botão" value="{{contato.btntitle}}" required>
+                </div>
+            <p>
+                <span class="text-danger">* </span>Todos os campos são obrigatórios
+            </p>
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

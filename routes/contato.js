@@ -143,5 +143,34 @@ router.post('/add-contato', (req, res) => {
 
 })
 
+router.get('/edit-contato', (req, res) => {
+    Contato.findOne().then((contato) => {
+        res.render('contato/edit-contato', {
+            layout: 'adm.handlebars',
+            contato: {
+                title: contato.title,
+                subtitle: contato.subtitle,
+                titleContact: contato.titleContact,
+                label_one: contato.label_one,
+                placeholder_one: contato.placeholder_one,
+                label_tow: contato.label_tow,
+                placeholder_tow: contato.placeholder_tow,
+                label_three: contato.label_three,
+                placeholder_three: contato.placeholder_three,
+                label_for: contato.label_for,
+                placeholder_for: contato.placeholder_for,
+                title_tow: contato.title_tow,
+                hrfuncionamento: contato.hrfuncionamento,
+                title_endereco: contato.title_endereco,
+                endereco: contato.endereco,
+                cidade_estado: contato.cidade_estado,
+                number: contato.number,
+                btntitle: contato.btntitle
+            }
+        })
+    })
+
+})
+
 //exportando modulo
 module.exports = router
