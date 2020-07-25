@@ -41,3 +41,7 @@ install Passport
 install passport-local
     Função: Estratégia de Validação Local 
     npm install --save passport-local
+
+install multer
+    Função: Controlar Files.img
+    npm install --S multer
